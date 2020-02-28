@@ -4,16 +4,21 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit970fc3ca656d5dc28bac114c50fc15bf
+class ComposerStaticInit9812b6d1cebee02432dc74da21ec9cbb
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
+        '3f8bdd3b35094c73a26f0106e3c0f8b2' => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/SendGrid.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
             'Symfony\\Polyfill\\Ctype\\' => 23,
+            'SendGrid\\Stats\\' => 15,
+            'SendGrid\\Mail\\' => 14,
+            'SendGrid\\Contacts\\' => 18,
+            'SendGrid\\' => 9,
         ),
         'P' => 
         array (
@@ -30,6 +35,22 @@ class ComposerStaticInit970fc3ca656d5dc28bac114c50fc15bf
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+        ),
+        'SendGrid\\Stats\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/stats',
+        ),
+        'SendGrid\\Mail\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/mail',
+        ),
+        'SendGrid\\Contacts\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sendgrid/sendgrid/lib/contacts',
+        ),
+        'SendGrid\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sendgrid/php-http-client/lib',
         ),
         'PhpOption\\' => 
         array (
@@ -48,8 +69,8 @@ class ComposerStaticInit970fc3ca656d5dc28bac114c50fc15bf
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit970fc3ca656d5dc28bac114c50fc15bf::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit970fc3ca656d5dc28bac114c50fc15bf::$prefixDirsPsr4;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit9812b6d1cebee02432dc74da21ec9cbb::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit9812b6d1cebee02432dc74da21ec9cbb::$prefixDirsPsr4;
 
         }, null, ClassLoader::class);
     }

@@ -1,6 +1,7 @@
 {
-    "require": {
-        "phpmailer/phpmailer": "^6.1",
-        "vlucas/phpdotenv": "^4.1"
-    }
+  "require": {
+    "phpmailer/phpmailer": "^6.1",
+    "vlucas/phpdotenv": "^4.1",
+    "sendgrid/sendgrid": "^7.4"
+  }
 }

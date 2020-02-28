@@ -36,4 +36,22 @@ class Mailer
 
         return $mail;
     }
+
+    function GetSendGrid(EmailEnvelope $emailEnvelope)
+    {
+        $email = new \SendGrid\Mail\Mail();
+        $emailUser = getenv('PHP_MAILER_USER');
+
+        $email->setFrom($emailUser, 'No Responder');
+        $email->setSubject("Sending with Twilio SendGrid is Fun");
+
+        foreach ($emailEnvelope->getAddresses() as $address) {
+            $email->addTo($address, $address);
+        }
+
+        $email->addContent("text/html", $emailEnvelope->getBody());
+        $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
+
+        return $sendgrid->send($email);
+    }
 }

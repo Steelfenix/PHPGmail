@@ -31,10 +31,8 @@ $dotenv->load();
 $mailer = new Mailer();
 
 // Se llama la funcion GetPHPMailer, que recibe un EmailEnvelope como parametro
-$mail = $mailer->GetPHPMailer($emailEnvelope);
 try {
-    $mail->send();
-    echo 'Se ha enviado el mensaje';
+    echo ($mailer->GetSendGrid($emailEnvelope))->statusCode();
 } catch (Exception $e) {
-    echo "Mailer Error: {$mail->ErrorInfo}";
+    echo "Mailer Error";
 }

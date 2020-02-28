@@ -17,9 +17,9 @@ require 'EmailEnvelope.php';
 //  Se crea Envoltorio de Email
 $emailEnvelope = new EmailEnvelope(
     'Adrian',
-    ['adriankiki98@gmail.com'],
+    ['adriankiki98@gmail.com', 'pedrotrdz76@gmail.com'],
     'Prueba de Encabezado',
-    'Esta es una prueba de Email 2'
+    'Esta es una prueba de Adrian'
 );
 
 
@@ -34,5 +34,5 @@ $mailer = new Mailer();
 try {
     echo ($mailer->GetSendGrid($emailEnvelope))->statusCode();
 } catch (Exception $e) {
-    echo "Mailer Error";
+    echo $e->getMessage();
 }

@@ -43,7 +43,7 @@ class Mailer
         $emailUser = getenv('PHP_MAILER_USER');
 
         $email->setFrom($emailUser, 'No Responder');
-        $email->setSubject("Sending with Twilio SendGrid is Fun");
+        $email->setSubject($emailEnvelope->getSubject());
 
         foreach ($emailEnvelope->getAddresses() as $address) {
             $email->addTo($address, $address);

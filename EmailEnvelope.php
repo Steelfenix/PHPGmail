@@ -6,13 +6,15 @@ class EmailEnvelope
 
     private $subject;
     private $body;
+    private $attachments;
 
-    function __construct(string $sender, array $addresses, string $subject, string $body)
+    function __construct(string $sender, array $addresses, string $subject, string $body, array $attachments)
     {
         $this->sender = $sender;
         $this->addresses = $addresses;
         $this->body = $body;
         $this->subject = $subject;
+        $this->attachments = $attachments;
     }
 
     function getSender()
@@ -33,5 +35,10 @@ class EmailEnvelope
     function getBody()
     {
         return $this->body;
+    }
+
+    function getAttachments()
+    {
+        return $this->attachments;
     }
 }

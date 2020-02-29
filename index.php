@@ -9,6 +9,7 @@ Para el uso de este se utiliza tambien el paquete Dotenv, el cual nos deja leer 
 */
 
 use Dotenv\Dotenv;
+use PhpOption\None;
 
 require_once('vendor/autoload.php');
 require 'Mailer.php';
@@ -17,9 +18,10 @@ require 'EmailEnvelope.php';
 //  Se crea Envoltorio de Email
 $emailEnvelope = new EmailEnvelope(
     'Adrian',
-    ['adriankiki98@gmail.com', 'pedrotrdz76@gmail.com'],
+    ['adriankiki98@gmail.com'],
     'Prueba de Encabezado',
-    'Esta es una prueba de Adrian'
+    'Esta es una prueba de Adrian',
+    ['./documents/test.txt']
 );
 
 

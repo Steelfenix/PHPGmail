@@ -34,6 +34,19 @@ class Mailer
         $mail->Subject = $emailEnvelope->getSubject();
         $mail->Body = $emailEnvelope->getBody();
 
+
+        print("test");
+        foreach ($emailEnvelope->getAttachments() as $fileAttachment) {
+            $file_encoded = base64_encode(file_get_contents($fileAttachment));
+            $mail->addAttachment(
+                $file_encoded,
+                "application/text",
+                "TestFile.txt",
+                "attachment"
+            );
+        }
+        unset($fileAttachment);
+
         return $mail;
     }
 
@@ -50,6 +63,18 @@ class Mailer
         }
 
         $email->addContent("text/html", $emailEnvelope->getBody());
+
+        foreach ($emailEnvelope->getAttachments() as $fileAttachment) {
+            $file_encoded = base64_encode(file_get_contents($fileAttachment));
+            $email->addAttachment(
+                $file_encoded,
+                "application/text",
+                "TestFile.txt",
+                "attachment"
+            );
+        }
+        unset($fileAttachment);
+
         $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
 
         return $sendgrid->send($email);
